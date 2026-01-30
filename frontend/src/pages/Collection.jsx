@@ -10,7 +10,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
-  const [sortType, setSortType] = useState('relavent')
+  const [sortType, setSortType] = useState("relavent");
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -31,7 +31,9 @@ const Collection = () => {
     let productsCopy = products.slice();
 
     if (showSearch && search) {
-      productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase()),
+      );
     }
 
     if (category.length > 0) {
@@ -71,8 +73,8 @@ const Collection = () => {
   }, [category, subCategory, search, showSearch]);
 
   useEffect(() => {
-      sortProduct()
-  }, [sortType])
+    sortProduct();
+  }, [sortType]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -168,7 +170,10 @@ const Collection = () => {
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
 
           {/* Product Sort */}
-          <select onChange={(e) => setSortType(e.target.value)} className="border border-gray-300 text-sm px-2">
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className="border border-gray-300 text-sm px-2"
+          >
             <option value="relavent" className="">
               Sort by: Relevant
             </option>
